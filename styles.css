@@ -1,53 +1,229 @@
-body { 
-    margin: 0; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    height: 100vh; 
-    background-color: #f0f0f0; 
-}
-canvas { 
-    display: block; 
-    border: 1px solid #ccc; 
-}
-#controls { 
-    background: white; 
-    padding: 10px; 
-    border-radius: 5px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-}
-input, button { 
-    margin: 5px; 
-    padding: 10px; 
-    font-size: 16px; 
-}
-button { 
-    cursor: pointer; 
-    background-color: #007bff; 
-    color: white; 
-    border: none; 
-    border-radius: 5px; 
-}
-button:hover { 
-    background-color: #0056b3; 
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-/* Pin Pad Styles */
-#pin-pad {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 20px;
-}
-
-#pin-pad button {
+#calculator {
+    background-color: #fff;
     padding: 20px;
-    font-size: 24px;
-    background-color: #28a745;
-    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
 }
 
-#pin-pad button:hover {
-    background-color: #218838;
+#display {
+    width: 100%;
+    height: 40px;
+    font-size: 24px;
+    text-align: right;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #d0d0d0;
+}
+
+button:nth-child(4n+1) {
+    background-color: #ff9999; /* Red */
+}
+
+button:nth-child(4n+2) {
+    background-color: #99ccff; /* Blue */
+}
+
+button:nth-child(4n+3) {
+    background-color: #99ff99; /* Green */
+}
+
+button:nth-child(4n+4) {
+    background-color: #ffcc99; /* Orange */
+}
+
+button:last-child {
+    background-color: #ffcc66; /* Yellow */
+}
+
+#math-challenges {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#challenge {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#challenge-answer {
+    width: 100px;
+    padding: 5px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#message {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#score {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#timer {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#progress {
+    height: 20px;
+    width: 0;
+    background-color: #76c7c0;
+    border-radius: 5px;
+}
+
+#leaderboard {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#high-scores {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#math-facts {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#fact {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#achievements {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#achievement-list {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#daily-challenge {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#daily-challenge-question {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#daily-challenge-answer {
+    width: 100px;
+    padding: 5px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#daily-challenge-message {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+    #buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    button {
+        height: 40px;
+        font-size: 16px;
+    }
+
+    #display {
+        font-size: 20px;
+    }
+
+    #challenge {
+        font-size: 20px;
+    }
+
+    #challenge-answer {
+        font-size: 16px;
+    }
+
+    #message, #score, #timer, #fact, #achievement-list, #daily-challenge-question, #daily-challenge-answer, #daily-challenge-message {
+        font-size: 16px;
+    }
 }
