@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,15 +18,16 @@ body {
     margin-bottom: 20px;
     width: 100%;
     max-width: 400px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 #display {
     width: 100%;
-    height: 40px;
+    height: 50px;
     font-size: 24px;
     text-align: right;
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #e0e0e0;
@@ -40,16 +41,17 @@ body {
 
 button {
     width: 100%;
-    height: 50px;
-    font-size: 18px;
+    height: 60px;
+    font-size: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
     background-color: #d0d0d0;
+    transform: scale(1.1);
 }
 
 button:nth-child(4n+1) {
@@ -72,7 +74,7 @@ button:last-child {
     background-color: #ffcc66; /* Yellow */
 }
 
-#math-challenges {
+#math-challenges, #leaderboard, #math-facts, #achievements, #daily-challenge, #interactive-tutorials {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -81,31 +83,26 @@ button:last-child {
     margin-bottom: 20px;
     width: 100%;
     max-width: 400px;
+    animation: fadeIn 1s ease-in-out;
 }
 
-#challenge {
-    font-size: 24px;
+h2 {
+    color: #333;
+}
+
+#challenge, #fact, #achievement-list, #daily-challenge-question, #tutorial-content {
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
-#challenge-answer {
+#challenge-answer, #daily-challenge-answer {
     width: 100px;
     padding: 5px;
     font-size: 18px;
     margin-bottom: 10px;
 }
 
-#message {
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-#score {
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-#timer {
+#message, #score, #timer, #tutorial-progress {
     font-size: 18px;
     margin-top: 10px;
 }
@@ -124,83 +121,46 @@ button:last-child {
     border-radius: 5px;
 }
 
-#leaderboard {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 400px;
-}
-
-#high-scores {
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-#math-facts {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 400px;
-}
-
-#fact {
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-#achievements {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 400px;
-}
-
-#achievement-list {
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-#daily-challenge {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 400px;
-}
-
-#daily-challenge-question {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-#daily-challenge-answer {
-    width: 100px;
-    padding: 5px;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-#daily-challenge-message {
-    font-size: 18px;
-    margin-top: 10px;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Media Queries for Responsive Design */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    #buttons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    button {
+        height: 50px;
+        font-size: 18px;
+    }
+
+    #display {
+        font-size: 22px;
+    }
+
+    #challenge, #fact, #achievement-list, #daily-challenge-question, #tutorial-content {
+        font-size: 16px;
+    }
+
+    #challenge-answer, #daily-challenge-answer {
+        font-size: 16px;
+    }
+
+    #message, #score, #timer, #tutorial-progress {
+        font-size: 16px;
+    }
+}
+
+/* Phone and below */
 @media (max-width: 600px) {
     #buttons {
         grid-template-columns: repeat(2, 1fr);
@@ -215,15 +175,34 @@ button:last-child {
         font-size: 20px;
     }
 
-    #challenge {
-        font-size: 20px;
+    #challenge, #fact, #achievement-list, #daily-challenge-question, #tutorial-content {
+        font-size: 14px;
     }
 
-    #challenge-answer {
-        font-size: 16px;
+    #challenge-answer, #daily-challenge-answer {
+        font-size: 14px;
     }
 
-    #message, #score, #timer, #fact, #achievement-list, #daily-challenge-question, #daily-challenge-answer, #daily-challenge-message {
-        font-size: 16px;
+    #message, #score, #timer, #tutorial-progress {
+        font-size: 14px;
+    }
+    button:nth-child(4n+2) {
+        background-color: #ff9999; /* Red */
+    }
+
+    button:nth-child(4n+1) {
+        background-color: #99ccff; /* Blue */
+    }
+
+    button:nth-child(4n+4) {
+        background-color: #99ff99; /* Green */
+    }
+
+    button:nth-child(4n+3) {
+        background-color: #ffcc99; /* Orange */
+    }
+
+    button:last-child {
+        background-color: #ffcc66; /* Yellow */
     }
 }
