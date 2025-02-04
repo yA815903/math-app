@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="controls">
+        <input type="number" id="num1" placeholder="Number 1">
+        <input type="number" id="num2" placeholder="Number 2">
+        <button onclick="add()">Add</button>
+        <button onclick="subtract()">Subtract</button>
+        <button onclick="multiply()">Multiply</button>
+        <button onclick="divide()">Divide</button>
+        <button onclick="exponentiate()">Exponentiate</button>
+        <button onclick="squareRoot()">Square Root</button>
+        <button onclick="modulus()">Modulus</button>
+        <button onclick="clearInputs()">Clear</button>
+        <input type="text" id="equation" placeholder="Enter equation (e.g., x^2)">
+        <button onclick="plotEquation()">Graph Equation</button>
+        <div id="result"></div>
+        <div id="history"></div>
+        
+    </div>
+    
+    <!-- Pin Pad Section -->
+    <div id="pin-pad">
+        <button onclick="appendToInput('1')">1</button>
+        <button onclick="appendToInput('2')">2</button>
+        <button onclick="appendToInput('3')">3</button>
+        <button onclick="appendToInput('4')">4</button>
+        <button onclick="appendToInput('5')">5</button>
+        <button onclick="appendToInput('6')">6</button>
+        <button onclick="appendToInput('7')">7</button>
+        <button onclick="appendToInput('8')">8</button>
+        <button onclick="appendToInput('9')">9</button>
+        <button onclick="appendToInput('0')">0</button>
+        <button onclick="clearInput()">Clear</button>
+    </div>
+
+    <script src="../src/app.js"></script>
+</body>
+</html>
